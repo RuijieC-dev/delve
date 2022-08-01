@@ -66,3 +66,9 @@ func TestFunctionLocationParsing(t *testing.T) {
 	assertNormalLocationSpec(t, "github.com/go-delve/delve/pkg/proc.Process.Continue:10", NormalLocationSpec{"github.com/go-delve/delve/pkg/proc.Process.Continue", &FuncLocationSpec{PackageName: "github.com/go-delve/delve/pkg/proc", ReceiverName: "Process", BaseName: "Continue"}, 10})
 	assertNormalLocationSpec(t, "github.com/go-delve/delve/pkg/proc.Continue:10", NormalLocationSpec{"github.com/go-delve/delve/pkg/proc.Continue", &FuncLocationSpec{PackageName: "github.com/go-delve/delve/pkg/proc", BaseName: "Continue"}, 10})
 }
+
+func assertSubstitutePathEqual(t *testing.T, expected string, substituted string) {
+	if expected != substituted {
+		t.Fatalf("Expected substitutedPath to be %s got %s instead", expected, substituted)
+	}
+}
