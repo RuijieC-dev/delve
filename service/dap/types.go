@@ -2,7 +2,6 @@ package dap
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -207,9 +206,6 @@ func (m *SubstitutePath) UnmarshalJSON(data []byte) error {
 			return fmt.Errorf(`cannot use %s as 'substitutePath' of type {"from":string, "to":string}`, data)
 		}
 		return err
-	}
-	if tmp.From == "" || tmp.To == "" {
-		return errors.New("'substitutePath' requires both 'from' and 'to' entries")
 	}
 	*m = SubstitutePath(tmp)
 	return nil
