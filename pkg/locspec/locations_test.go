@@ -108,7 +108,7 @@ func TestSubstitutePathWindows(t *testing.T) {
 	assertSubstitutePathEqual(t, "f:\\already\\abs\\path", SubstitutePath("F:\\already\\abs\\path", [][2]string{{"", "c:\\my\\asb\\folder\\"}}))
 	assertSubstitutePathEqual(t, "relative\\path", SubstitutePath("C:\\my\\asb\\folder\\relative\\path", [][2]string{{"c:\\my\\asb\\folder\\", ""}}))
 	assertSubstitutePathEqual(t, "f:\\another\\folder\\relative\\path", SubstitutePath("F:\\another\\folder\\relative\\path", [][2]string{{"c:\\my\\asb\\folder\\", ""}}))
-	assertSubstitutePathEqual(t, "my/path", SubstitutePath("relative\\path\\my\\path", [][2]string{{"relative\\path", ""}}))
+	assertSubstitutePathEqual(t, "my\\path", SubstitutePath("relative\\path\\my\\path", [][2]string{{"relative\\path", ""}}))
 	assertSubstitutePathEqual(t, "c:\\abs\\my\\path", SubstitutePath("c:\\abs\\my\\path", [][2]string{{"abs\\my", ""}}))
 
 	// Absolute paths mapping
